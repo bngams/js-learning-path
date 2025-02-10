@@ -47,21 +47,55 @@
     </div>
 
     <script>
-        // TODO: Create and complete these classes
+
+        function displayResult(result) {
+            document.querySelector('#result').textContent = result;
+        }
+
         class Rectangle {
-            // Your code here
+            constructor(width, height) {
+                this.width = width;
+                this.height = height;
+            }
+
+            getArea() {
+                return this.width * this.height;
+            }
+
+            getPerimeter() {
+                return 2 * (this.width + this.height);
+            }
         }
 
         class Circle {
-            // Your code here
+            constructor(radius) {
+                this.radius = radius;
+            }
+
+            getArea() {
+                return Math.PI * this.radius * this.radius;
+            }
+
+            getCircumference() {
+                return 2 * Math.PI * this.radius;
+            }
         }
 
         function calculateRectangle() {
-            // Your code here
+            const width = parseFloat(document.getElementById('rectWidth').value);
+            const height = parseFloat(document.getElementById('rectHeight').value);
+            const rectangle = new Rectangle(width, height);
+            const area = rectangle.getArea();
+            const perimeter = rectangle.getPerimeter();
+            displayResult(`Area: ${area}, Perimeter: ${perimeter}`);
         }
 
         function calculateCircle() {
-            // Your code here
+            const radius = parseFloat(document.getElementById('circleRadius').value);
+            const circle = new Circle(radius);
+            const area = circle.getArea();
+            const circumference = circle.getCircumference();
+            displayResult(`Area: ${area}, Circumference: ${circumference}`);
         }
     </script>
 </body>

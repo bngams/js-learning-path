@@ -16,7 +16,7 @@
                 <div id="colorBox" class="w-full h-32 bg-gray-200 rounded cursor-pointer flex items-center justify-center">
                     <p>Click me to change color!</p>
                 </div>
-                <button onclick="resetColor()" class="bg-blue-500 text-white px-4 py-2 rounded">Reset Color</button>
+                <button onclick="resetColorWithStyles()" class="bg-blue-500 text-white px-4 py-2 rounded">Reset Color</button>
             </div>
         </div>
 
@@ -28,11 +28,36 @@
         const colorBox = document.getElementById('colorBox');
         
         colorBox.addEventListener('click', function() {
-            // Your code here
+            resetColorWithStyles();
         });
 
-        function resetColor() {
-            // Your code here
+        function resetColorWithCSSClasses() {
+            const colors = ['bg-red-500', 'bg-green-500', 'bg-blue-500', 'bg-yellow-500', 'bg-purple-500'];
+            const currentColor = colorBox.classList[1];
+            let newColor = colors[Math.floor(Math.random() * colors.length)];
+            
+            while (newColor === currentColor) {
+            newColor = colors[Math.floor(Math.random() * colors.length)];
+            }
+            
+            colorBox.classList.remove(currentColor);
+            colorBox.classList.add(newColor);
+            colorBox.classList.add('text-white px-4 py-2 rounded');
+        }
+
+        function resetColorWithStyles() {
+            const colors = ['red', 'green', 'blue', 'yellow', 'purple'];
+            const currentColor = colorBox.style.backgroundColor;
+            let newColor = colors[Math.floor(Math.random() * colors.length)];
+            
+            while (newColor === currentColor) {
+            newColor = colors[Math.floor(Math.random() * colors.length)];
+            }
+            
+            colorBox.style.backgroundColor = newColor;
+            colorBox.style.color = 'white';
+            colorBox.style.padding = '1rem';
+            colorBox.style.borderRadius = '0.5rem';
         }
     </script>
 </body>

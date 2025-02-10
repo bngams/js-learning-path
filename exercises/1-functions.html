@@ -39,19 +39,23 @@
     <script>
         // TODO: Complete these functions
         function add(a, b) {
-            // Your code here
+            return a + b;
         }
 
         function subtract(a, b) {
-            // Your code here
+            return a - b;
         }
 
         function multiply(a, b) {
-            // Your code here
+            return a * b;
         }
 
         function divide(a, b) {
-            // Your code here
+            if (b === 0) {
+                // throw new Error("Division by zero");                
+                return 'Error: Division by zero';
+            }
+            return a / b;
         }
 
         function calculate(operation) {
